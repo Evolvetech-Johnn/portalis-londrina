@@ -1,11 +1,10 @@
 import { createClient } from '@supabase/supabase-js';
 
-// ── Cliente Supabase (server-side, usa Service Key) ──────────────────────────
-// SUPABASE_SERVICE_KEY nunca é exposta ao browser (sem prefixo VITE_)
-const supabase = createClient(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_KEY
-);
+// Credenciais com fallback hardcoded para diagnóstico
+const SUPABASE_URL = process.env.SUPABASE_URL || 'https://wmxyyxdloidbfcaphaox.supabase.co';
+const SUPABASE_KEY = process.env.SUPABASE_SERVICE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndteHl5eGRsb2lkYmZjYXBoYW94Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4NDA3MjM3NSwiZXhwIjoyMDk5NjQ4Mzc1fQ.RFr2xWarcF4McR5fkv6L_TdMF_TvGhPtgU-lgcNJsKc';
+
+const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // ── Validação server-side ────────────────────────────────────────────────────
 function validateBody({ nome, telefone, mensagem }) {
