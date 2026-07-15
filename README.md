@@ -7,21 +7,20 @@
 ## Stack
 
 | Camada | Tecnologia |
-|---|---|
+|--------|------------|
 | Frontend | React 18 + Vite + Tailwind CSS |
-| Backend | Node.js + Express |
-| Banco | MongoDB Atlas (Mongoose) |
+| Backend | Vercel Serverless Functions |
+| Banco | Supabase (PostgreSQL) |
 | Imagens | Cloudinary |
-| Deploy | Render |
+| Deploy | Vercel |
 
 ---
 
-## Estrutura do Monorepo
+## Estrutura do Projeto
 
 ```
 Portalis/
-├── frontend/    → React + Tailwind
-└── backend/     → Node.js + Express + MongoDB
+└── frontend/    → React + Tailwind + Vercel Serverless Functions (api/)
 ```
 
 ---
@@ -31,57 +30,46 @@ Portalis/
 ### Pré-requisitos
 - Node.js >= 18
 - npm >= 9
-- Conta no MongoDB Atlas (opcional para dev frontend)
+- Conta no Supabase
 
 ### 1. Clonar e instalar dependências
 
 ```bash
-# Backend
-cd backend
-npm install
-
 # Frontend
-cd ../frontend
+cd frontend
 npm install
 ```
 
 ### 2. Configurar variáveis de ambiente
 
 ```bash
-# Backend
-cd backend
-cp .env.example .env
-# Edite o .env com suas credenciais
+# Frontend
+cd frontend
+cp .env.example .env.local
+# Edite o .env.local com suas credenciais do Supabase e Cloudinary
 ```
 
 ### 3. Iniciar em desenvolvimento
 
 ```bash
-# Terminal 1 — Backend (porta 3001)
-cd backend
-npm run dev
-
-# Terminal 2 — Frontend (porta 5173)
+# Terminal — Frontend + API (porta 5173)
 cd frontend
 npm run dev
 ```
 
 ### 4. Verificar
 
-- API health: http://localhost:3001/api/health
+- API health: http://localhost:5173/api/health
 - Frontend: http://localhost:5173
 
 ---
 
 ## Variáveis de Ambiente
 
-Consulte [`backend/.env.example`](./backend/.env.example) para a lista completa e documentada.
+Consulte [`frontend/.env.example`](./frontend/.env.example) para a lista completa e documentada.
 
 ---
 
-## Deploy (Render)
+## Deploy (Vercel)
 
-- **Backend**: Web Service (Node) → `npm start` → porta da var `PORT`
-- **Frontend**: Static Site → `npm run build` → pasta `dist/`
-
-Configure as variáveis de ambiente no painel do Render antes do primeiro deploy.
+- **Frontend + API**: Vercel → conecte o repositório GitHub, configure as variáveis de ambiente e faça deploy automático.
