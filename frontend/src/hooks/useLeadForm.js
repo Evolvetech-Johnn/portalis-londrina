@@ -8,7 +8,6 @@ import { formatPhone } from '../utils/phoneFormatter.js';
  */
 const INITIAL_FIELDS = {
   nome: '',
-  email: '',
   telefone: '',
   empresa: '',
   mensagem: '',

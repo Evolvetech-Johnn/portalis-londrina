@@ -34,12 +34,7 @@ export const validateLeadForm = (fields) => {
     errors.nome = 'Nome não pode exceder 120 caracteres';
   }
 
-  // E-mail
-  if (!fields.email || fields.email.trim().length === 0) {
-    errors.email = 'E-mail é obrigatório';
-  } else if (!EMAIL_REGEX.test(fields.email.trim())) {
-    errors.email = 'E-mail inválido';
-  }
+  // O e-mail foi removido do formulário, então não validamos mais
 
   // Telefone
   if (!fields.telefone || fields.telefone.trim().length === 0) {
