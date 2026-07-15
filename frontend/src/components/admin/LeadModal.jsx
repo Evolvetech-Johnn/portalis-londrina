@@ -97,7 +97,7 @@ export default function LeadModal({ leadId, onClose, onUpdate }) {
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-obsidian-950/80 backdrop-blur-sm">
         <div className="bg-obsidian-900 border border-slate-800 rounded-xl p-8 flex flex-col items-center">
-          <div className="w-8 h-8 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin mb-4"></div>
+          <div className="w-8 h-8 border-4 border-gold-500 border-t-transparent rounded-full animate-spin mb-4"></div>
           <p className="text-slate-400">Carregando dados do lead...</p>
         </div>
       </div>
@@ -141,7 +141,7 @@ export default function LeadModal({ leadId, onClose, onUpdate }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-4">
               <InfoRow icon={MessageSquare} label="WhatsApp" value={
-                <a href={`https://wa.me/55${lead.whatsapp.replace(/\D/g, '')}`} target="_blank" rel="noreferrer" className="text-indigo-400 hover:underline">
+                <a href={`https://wa.me/55${lead.whatsapp.replace(/\D/g, '')}`} target="_blank" rel="noreferrer" className="text-gold-400 hover:underline">
                   {lead.whatsapp}
                 </a>
               } />
@@ -169,7 +169,7 @@ export default function LeadModal({ leadId, onClose, onUpdate }) {
                 type="number"
                 value={valorEstimado}
                 onChange={(e) => setValorEstimado(e.target.value)}
-                className="w-full bg-obsidian-950 border border-slate-700 rounded-md px-3 py-2 text-slate-50 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                className="w-full bg-obsidian-950 border border-slate-700 rounded-md px-3 py-2 text-slate-50 focus:border-gold-500 focus:ring-1 focus:ring-gold-500"
                 placeholder="Ex: 5000"
               />
             </div>
@@ -181,7 +181,7 @@ export default function LeadModal({ leadId, onClose, onUpdate }) {
                 type="text"
                 value={responsavel}
                 onChange={(e) => setResponsavel(e.target.value)}
-                className="w-full bg-obsidian-950 border border-slate-700 rounded-md px-3 py-2 text-slate-50 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                className="w-full bg-obsidian-950 border border-slate-700 rounded-md px-3 py-2 text-slate-50 focus:border-gold-500 focus:ring-1 focus:ring-gold-500"
                 placeholder="Nome do consultor"
               />
             </div>
@@ -212,7 +212,7 @@ export default function LeadModal({ leadId, onClose, onUpdate }) {
               value={novaObservacao}
               onChange={(e) => setNovaObservacao(e.target.value)}
               placeholder="Adicionar nova observação..."
-              className="w-full bg-obsidian-950 border border-slate-700 rounded-md px-3 py-2 text-slate-50 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-sm h-20 resize-none"
+              className="w-full bg-obsidian-950 border border-slate-700 rounded-md px-3 py-2 text-slate-50 focus:border-gold-500 focus:ring-1 focus:ring-gold-500 text-sm h-20 resize-none"
             />
           </div>
 
@@ -240,7 +240,7 @@ export default function LeadModal({ leadId, onClose, onUpdate }) {
             <button
               onClick={handleSave}
               disabled={isSaving}
-              className="flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-md transition-colors disabled:opacity-50"
+              className="flex items-center gap-2 px-4 py-2 bg-gold-600 hover:bg-gold-700 text-white text-sm font-medium rounded-md transition-colors disabled:opacity-50"
             >
               <Save className="w-4 h-4" />
               {isSaving ? 'Salvando...' : 'Salvar Alterações'}

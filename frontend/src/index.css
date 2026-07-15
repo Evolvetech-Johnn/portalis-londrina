@@ -1,6 +1,6 @@
 /* ============================================================
    PORTALIS — Global CSS
-   Paleta: Obsidian & Electric Indigo
+   Paleta: Obsidian & Electric Gold
    Tipografia: DM Serif Display (headings) + Inter (corpo)
    Documentação: src/styles/tokens.md
    ============================================================ */
@@ -56,13 +56,13 @@
   }
 
   a {
-    @apply text-indigo-300 transition-colors duration-200;
+    @apply text-gold-300 transition-colors duration-200;
   }
   a:hover {
-    @apply text-indigo-200;
+    @apply text-gold-200;
   }
   a:focus-visible {
-    @apply outline-none ring-2 ring-indigo-600 ring-offset-2 ring-offset-obsidian-900 rounded-sm;
+    @apply outline-none ring-2 ring-gold-600 ring-offset-2 ring-offset-obsidian-900 rounded-sm;
   }
 
   /* ── Imagens ───────────────────────────────────────────── */
@@ -84,7 +84,7 @@
 
   /* ── Focus padrão (acessibilidade teclado) ─────────────── */
   :focus-visible {
-    @apply outline-none ring-2 ring-indigo-600 ring-offset-2 ring-offset-obsidian-900;
+    @apply outline-none ring-2 ring-gold-600 ring-offset-2 ring-offset-obsidian-900;
   }
 
   /* ── Formulários ───────────────────────────────────────── */
@@ -114,19 +114,19 @@
   /* ── Botões ────────────────────────────────────────────── */
 
   /**
-   * .btn-primary — CTA principal (indigo gradient)
+   * .btn-primary — CTA principal (gold gradient)
    * Estados: hover (brilho intenso) | focus (ring) | active (scale down) | disabled
    * Uso: <button class="btn-primary">Quero mais leads</button>
    */
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2
-           bg-indigo-gradient-h text-white font-semibold text-sm
+           bg-gold-gradient-h text-white font-semibold text-sm
            px-6 py-3.5 rounded-lg
            shadow-accent
            transition-all duration-200
            hover:shadow-accent-lg hover:scale-[1.03] hover:brightness-110
            active:scale-[0.97] active:shadow-accent
-           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-600
            focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian-900
            disabled:opacity-40 disabled:cursor-not-allowed disabled:scale-100 disabled:shadow-none
            select-none;
@@ -141,18 +141,18 @@
   }
 
   /**
-   * .btn-secondary — Outline/ghost com accent indigo
+   * .btn-secondary — Outline/ghost com accent gold
    * Uso: <button class="btn-secondary">Saiba mais</button>
    */
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2
-           bg-transparent text-indigo-400 font-semibold text-sm
+           bg-transparent text-gold-400 font-semibold text-sm
            px-6 py-3.5 rounded-lg
-           border border-indigo-600/40
+           border border-gold-600/40
            transition-all duration-200
-           hover:border-indigo-500 hover:bg-indigo-600/10 hover:text-indigo-300
+           hover:border-gold-500 hover:bg-gold-600/10 hover:text-gold-300
            active:scale-[0.97]
-           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-600
            focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian-900
            disabled:opacity-40 disabled:cursor-not-allowed
            select-none;
@@ -172,7 +172,7 @@
            transition-all duration-200
            hover:text-slate-200 hover:bg-slate-800/50
            active:scale-[0.97]
-           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-600
            focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian-900
            disabled:opacity-40 disabled:cursor-not-allowed
            select-none;
@@ -190,7 +190,7 @@
   }
 
   .card-hover {
-    @apply card hover:border-indigo-600/30 hover:shadow-glass-hover hover:-translate-y-1;
+    @apply card hover:border-gold-600/30 hover:shadow-glass-hover hover:-translate-y-1;
   }
 
   /**
@@ -216,10 +216,10 @@
   }
 
   /**
-   * .card-accent — Card com borda/glow indigo (destaque)
+   * .card-accent — Card com borda/glow gold (destaque)
    */
   .card-accent {
-    @apply card border-indigo-600/40 shadow-accent;
+    @apply card border-gold-600/40 shadow-accent;
   }
 
   /* ── Formulários ───────────────────────────────────────── */
@@ -233,7 +233,7 @@
 
   .form-label-required::after {
     content: ' *';
-    @apply text-indigo-400;
+    @apply text-gold-400;
   }
 
   /**
@@ -248,7 +248,7 @@
            shadow-inner-sm
            transition-all duration-200
            hover:border-slate-700
-           focus:outline-none focus:ring-2 focus:ring-indigo-600/50 focus:border-indigo-600
+           focus:outline-none focus:ring-2 focus:ring-gold-600/50 focus:border-gold-600
            focus:bg-obsidian-600
            disabled:opacity-40 disabled:cursor-not-allowed;
   }
@@ -298,9 +298,9 @@
            px-3 py-1 rounded-full;
   }
 
-  .badge-indigo {
+  .badge-gold {
     @apply badge
-           bg-indigo-600/15 text-indigo-300 border border-indigo-600/30;
+           bg-gold-600/15 text-gold-300 border border-gold-600/30;
   }
 
   .badge-success {
@@ -326,8 +326,8 @@
   /* ── Ícone container ───────────────────────────────────── */
   .icon-box {
     @apply flex items-center justify-center rounded-xl
-           bg-indigo-600/15 border border-indigo-600/20
-           text-indigo-400
+           bg-gold-600/15 border border-gold-600/20
+           text-gold-400
            transition-all duration-300;
   }
 
@@ -336,8 +336,8 @@
   .icon-box-lg  { @apply icon-box w-16 h-16; }
 
   .icon-box-hover {
-    @apply icon-box hover:bg-indigo-600/25 hover:border-indigo-600/40
-           hover:shadow-glow-indigo hover:text-indigo-300;
+    @apply icon-box hover:bg-gold-600/25 hover:border-gold-600/40
+           hover:shadow-glow-gold hover:text-gold-300;
   }
 }
 
@@ -348,11 +348,11 @@
 
   /* ── Texto com gradiente ───────────────────────────────── */
   .text-gradient {
-    @apply bg-violet-gradient bg-clip-text text-transparent;
+    @apply bg-amber-gradient bg-clip-text text-transparent;
   }
 
-  .text-gradient-indigo {
-    @apply bg-indigo-gradient bg-clip-text text-transparent;
+  .text-gradient-gold {
+    @apply bg-gold-gradient bg-clip-text text-transparent;
   }
 
   /* ── Glassmorphism ─────────────────────────────────────── */
@@ -363,7 +363,7 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  .glass-indigo {
+  .glass-gold {
     background: rgba(109, 94, 246, 0.06);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);

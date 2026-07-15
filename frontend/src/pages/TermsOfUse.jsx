@@ -15,7 +15,7 @@ export default function TermsOfUse() {
       <div className="bg-obsidian-900 min-h-screen pt-24 pb-16">
         <div className="container-lp max-w-3xl">
           <div className="mb-10">
-            <Link to="/" className="inline-flex items-center text-sm font-medium text-indigo-400 hover:text-indigo-300 transition-colors">
+            <Link to="/" className="inline-flex items-center text-sm font-medium text-gold-400 hover:text-gold-300 transition-colors">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Voltar para o início
             </Link>

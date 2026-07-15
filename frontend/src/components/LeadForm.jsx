@@ -15,7 +15,7 @@ export default function LeadForm() {
     <section id="lead-form" className="section bg-obsidian-800 relative overflow-hidden">
       {/* Background decorativo */}
       <div className="absolute inset-0 noise-overlay"></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-[600px] bg-indigo-600/10 blur-[100px] rounded-full pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-[600px] bg-gold-600/10 blur-[100px] rounded-full pointer-events-none"></div>
 
       <div className="container-lp relative z-10">
         <div className="max-w-lg mx-auto">

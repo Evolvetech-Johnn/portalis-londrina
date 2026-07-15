@@ -49,7 +49,7 @@ export default function AdminLogin() {
       <div className="w-full max-w-md">
         <div className="text-center mb-10">
           <h1 className="text-3xl font-heading font-bold text-slate-50 tracking-wide mb-2">
-            Portalis<span className="text-indigo-500">.</span>Admin
+            Portalis<span className="text-gold-500">.</span>Admin
           </h1>
           <p className="text-slate-400">Acesse o painel de gerenciamento de leads</p>
         </div>
@@ -70,7 +70,7 @@ export default function AdminLogin() {
                 id="email"
                 type="email"
                 required
-                className="w-full bg-obsidian-900 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-50 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
+                className="w-full bg-obsidian-900 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-50 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={isLoading}
@@ -85,7 +85,7 @@ export default function AdminLogin() {
                 id="senha"
                 type="password"
                 required
-                className="w-full bg-obsidian-900 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-50 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
+                className="w-full bg-obsidian-900 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-50 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors"
                 value={senha}
                 onChange={(e) => setSenha(e.target.value)}
                 disabled={isLoading}
@@ -95,7 +95,7 @@ export default function AdminLogin() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 px-4 rounded-lg transition-colors flex items-center justify-center gap-2"
+              className="w-full bg-gold-600 hover:bg-gold-700 text-white font-medium py-2.5 px-4 rounded-lg transition-colors flex items-center justify-center gap-2"
             >
               {isLoading ? (
                 <>

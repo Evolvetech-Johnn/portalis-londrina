@@ -95,7 +95,7 @@ function TestimonialCard({ data, delay }) {
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.5, delay, ease: [0.34, 1.56, 0.64, 1] }}
     >
-      <Quote className="w-10 h-10 text-indigo-600/40 mb-6" />
+      <Quote className="w-10 h-10 text-gold-600/40 mb-6" />
       <p className="text-lg text-slate-200 mb-8 italic leading-relaxed">
         "{data.text}"
       </p>

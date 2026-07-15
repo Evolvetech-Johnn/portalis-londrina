@@ -35,7 +35,7 @@ export default function SolutionSection() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
           >
-            <span className="badge-indigo mb-6 inline-flex">
+            <span className="badge-gold mb-6 inline-flex">
               A Solução
             </span>
             <h2 className="mb-6">
@@ -48,7 +48,7 @@ export default function SolutionSection() {
             <ul className="space-y-4 mb-10">
               {benefits.map((text, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-indigo-400 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-6 h-6 text-gold-400 shrink-0 mt-0.5" />
                   <span className="text-slate-300 font-medium">{text}</span>
                 </li>
               ))}
@@ -74,7 +74,7 @@ export default function SolutionSection() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
           >
-            <div className="absolute inset-0 bg-indigo-600/20 blur-[80px] rounded-full pointer-events-none"></div>
+            <div className="absolute inset-0 bg-gold-600/20 blur-[80px] rounded-full pointer-events-none"></div>
             
             <div className="card-glass p-8 relative glow-border">
               <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
@@ -86,11 +86,11 @@ export default function SolutionSection() {
                 <div>
                   <div className="flex justify-between text-sm mb-2">
                     <span className="text-slate-400">Leads Qualificados Gerados</span>
-                    <span className="text-indigo-300 font-mono">+142%</span>
+                    <span className="text-gold-300 font-mono">+142%</span>
                   </div>
                   <div className="w-full h-2 bg-obsidian-900 rounded-full overflow-hidden">
                     <motion.div 
-                      className="h-full bg-indigo-gradient rounded-full"
+                      className="h-full bg-gold-gradient rounded-full"
                       initial={{ width: 0 }}
                       whileInView={{ width: '75%' }}
                       viewport={{ once: true, amount: 0.2 }}
@@ -117,8 +117,8 @@ export default function SolutionSection() {
               </div>
 
               <div className="mt-8 p-4 bg-obsidian-900/50 rounded-lg border border-white/5 flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-indigo-600/20 flex items-center justify-center shrink-0">
-                  <span className="text-indigo-400 text-sm font-bold">✓</span>
+                <div className="w-10 h-10 rounded-full bg-gold-600/20 flex items-center justify-center shrink-0">
+                  <span className="text-gold-400 text-sm font-bold">✓</span>
                 </div>
                 <div>
                   <h6 className="text-sm text-slate-100">Novo lead recebido no WhatsApp</h6>

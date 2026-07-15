@@ -105,7 +105,7 @@ export default function AdminLeads() {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-full">
-        <Loader2 className="w-8 h-8 animate-spin text-indigo-500" />
+        <Loader2 className="w-8 h-8 animate-spin text-gold-500" />
       </div>
     );
   }
@@ -127,7 +127,7 @@ export default function AdminLeads() {
               placeholder="Buscar lead ou empresa..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="pl-9 pr-4 py-2 bg-obsidian-900 border border-slate-700 rounded-lg text-sm text-slate-50 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 w-64"
+              className="pl-9 pr-4 py-2 bg-obsidian-900 border border-slate-700 rounded-lg text-sm text-slate-50 focus:border-gold-500 focus:ring-1 focus:ring-gold-500 w-64"
             />
           </div>
           <button className="p-2 bg-obsidian-900 border border-slate-700 rounded-lg text-slate-400 hover:text-slate-50 hover:bg-slate-800 transition-colors">
@@ -165,7 +165,7 @@ export default function AdminLeads() {
                       ref={provided.innerRef}
                       {...provided.droppableProps}
                       className={`flex-1 overflow-y-auto p-2 bg-obsidian-900/30 rounded-b-lg border border-t-0 border-slate-800 transition-colors custom-scrollbar ${
-                        snapshot.isDraggingOver ? 'bg-indigo-900/10' : ''
+                        snapshot.isDraggingOver ? 'bg-gold-900/10' : ''
                       }`}
                     >
                       {getLeadsByColumn(column).map((lead, index) => (
@@ -176,8 +176,8 @@ export default function AdminLeads() {
                               {...provided.draggableProps}
                               {...provided.dragHandleProps}
                               onClick={() => setSelectedLeadId(lead.id)}
-                              className={`mb-3 bg-obsidian-900 border border-slate-700 p-4 rounded-lg shadow-sm cursor-pointer hover:border-indigo-500/50 transition-all ${
-                                snapshot.isDragging ? 'shadow-lg ring-2 ring-indigo-500/50' : ''
+                              className={`mb-3 bg-obsidian-900 border border-slate-700 p-4 rounded-lg shadow-sm cursor-pointer hover:border-gold-500/50 transition-all ${
+                                snapshot.isDragging ? 'shadow-lg ring-2 ring-gold-500/50' : ''
                               }`}
                             >
                               <p className="font-semibold text-slate-100 text-sm mb-1">{lead.nome}</p>

@@ -37,60 +37,60 @@ export default {
       // ════════════════════════════════════════════════════════════════════
       colors: {
         // ── Obsidian (60% — fundos) ──────────────────────────────────────
-        // Navy-black profundo. Nunca puro #000 — reduz tensão ocular.
+        // Black puro ("OLED") para fundo principal, com grafites puros para elevações.
         obsidian: {
-          950: '#04040c',   // Fundo absolutamente escuro (footer, overlays)
-          900: '#080810',   // Background principal da página
-          800: '#0f0f1e',   // Background seção alternada
-          700: '#17172e',   // Cards / containers internos
-          600: '#20203e',   // Cards hover, bordas internas
-          500: '#2a2a50',   // Elementos de UI elevados
+          950: '#000000',   // Fundo absolutamente escuro (Main bg, footer)
+          900: '#050505',   // Background secudário sutil
+          800: '#0a0a0a',   // Background seção alternada
+          700: '#121212',   // Cards / containers internos
+          600: '#1a1a1a',   // Cards hover, bordas internas
+          500: '#262626',   // Elementos de UI elevados
         },
 
-        // ── Indigo (10% — accent / CTA) ──────────────────────────────────
-        // Electric indigo: diferencia no mercado imobiliário, sinaliza tech.
-        // Contraste AA validado em todos os fundos obsidian.
-        indigo: {
-          950: '#1e1752',
-          900: '#2b2270',
-          800: '#3d33a0',
-          700: '#5244c8',
-          600: '#6d5ef6',   // ← CTA Principal (ratio 4.8:1 em #0f0f1e ✅ AA)
-          500: '#7f72f7',   // ← CTA Hover
-          400: '#9d93f8',   // ← Ícones, destaques em texto
-          300: '#bdb8fa',   // ← Texto de link em fundo escuro
-          200: '#d6d3fc',   // ← Badges, pills
-          100: '#eceafe',   // ← Tint leve de hover em itens
-          50:  '#f6f5ff',   // ← Fundo de tooltip / popover claro
+        // ── Gold (10% — accent / CTA) ──────────────────────────────────
+        // Dourado fosco premium: sofisticação e conversão. Substitui o antigo indigo.
+        // Contraste altíssimo no fundo preto.
+        gold: {
+          950: '#332800',
+          900: '#4D3C00',
+          800: '#665000',
+          700: '#997800',
+          600: '#D4AF37',   // ← CTA Principal (Dourado metálico/premium)
+          500: '#DFBF5B',   // ← CTA Hover
+          400: '#EACC7F',   // ← Ícones, destaques em texto
+          300: '#F5D9A3',   // ← Texto de link em fundo escuro
+          200: '#FAE6C7',   // ← Badges, pills
+          100: '#FCF3E3',   // ← Tint leve de hover em itens
+          50:  '#FFFAF0',   // ← Fundo de tooltip / popover claro
         },
 
-        // ── Violet (apoio — gradientes, glows) ───────────────────────────
-        // Complementa o indigo em gradientes e efeitos de profundidade.
-        violet: {
-          900: '#1e1040',
-          800: '#2d1a60',
-          700: '#3f2580',
-          600: '#5432a0',
-          500: '#6b3fc0',
-          400: '#8b5cf6',   // ← Usado em gradientes purple/indigo
-          300: '#a78bfa',
-          200: '#c4b5fd',
-          100: '#ddd6fe',
+        // ── Amber (apoio — gradientes, glows) ───────────────────────────
+        // Complementa o dourado para dar profundidade térmica em glows.
+        amber: {
+          900: '#78350f',
+          800: '#92400e',
+          700: '#b45309',
+          600: '#d97706',
+          500: '#f59e0b',
+          400: '#fbbf24',   // ← Usado em gradientes gold/amber
+          300: '#fcd34d',
+          200: '#fde68a',
+          100: '#fef3c7',
         },
 
-        // ── Cinza violetado (30% — texto e superfícies neutras) ───────────
-        // Derivado da paleta obsidian com subtom roxo — coerente com accent.
+        // ── Slate/Cinza Puro (30% — texto e superfícies neutras) ───────────
+        // Cinzas totalmente dessaturados (sem azul/roxo) para focar na luxuosidade.
         slate: {
-          50:  '#f4f3ff',   // Texto principal (ratio 18.7:1 em #080810 ✅ AAA)
-          100: '#e8e6fd',
-          200: '#d0cdfa',
-          300: '#c4c2e8',   // Texto secundário (ratio 8.4:1 ✅ AAA)
-          400: '#9d9bc0',
-          500: '#7a789a',   // Texto muted (ratio 4.9:1 em #0f0f1e ✅ AA)
-          600: '#5e5c7a',   // Bordas, divisores
-          700: '#46445c',   // Bordas de card em hover
-          800: '#2e2c3e',   // Bordas sutis em elementos escuros
-          900: '#1a1828',   // Superfície de input
+          50:  '#FAFAFA',   // Texto principal (Branco neve)
+          100: '#F5F5F5',
+          200: '#E5E5E5',
+          300: '#D4D4D4',   // Texto secundário
+          400: '#A3A3A3',
+          500: '#737373',   // Texto muted
+          600: '#525252',   // Bordas, divisores
+          700: '#404040',   // Bordas de card em hover
+          800: '#262626',   // Bordas sutis em elementos escuros
+          900: '#171717',   // Superfície de input
         },
 
         // ── Estados semânticos ────────────────────────────────────────────
@@ -231,34 +231,34 @@ export default {
 
       // ════════════════════════════════════════════════════════════════════
       // SOMBRAS — Modelo de elevação 5 níveis
-      // Todas as sombras têm subtom violeta para coerência com a paleta
+      // Todas as sombras agora são em preto absoluto (profundidade luxuosa)
       // ════════════════════════════════════════════════════════════════════
       boxShadow: {
         // Elevação 0 → 4 (sombras de profundidade)
-        'xs':  '0 1px 2px rgba(4, 4, 12, 0.4)',
-        'sm':  '0 2px 4px rgba(4, 4, 12, 0.5), 0 1px 2px rgba(4, 4, 12, 0.3)',
-        DEFAULT:'0 4px 8px rgba(4, 4, 12, 0.5), 0 2px 4px rgba(4, 4, 12, 0.3)',
-        'md':  '0 4px 8px rgba(4, 4, 12, 0.5)',
-        'lg':  '0 8px 24px rgba(4, 4, 12, 0.6), 0 4px 8px rgba(4, 4, 12, 0.4)',
-        'xl':  '0 16px 48px rgba(4, 4, 12, 0.7), 0 8px 16px rgba(4, 4, 12, 0.4)',
-        '2xl': '0 24px 64px rgba(4, 4, 12, 0.8)',
+        'xs':  '0 1px 2px rgba(0, 0, 0, 0.6)',
+        'sm':  '0 2px 4px rgba(0, 0, 0, 0.7), 0 1px 2px rgba(0, 0, 0, 0.5)',
+        DEFAULT:'0 4px 8px rgba(0, 0, 0, 0.7), 0 2px 4px rgba(0, 0, 0, 0.5)',
+        'md':  '0 4px 8px rgba(0, 0, 0, 0.7)',
+        'lg':  '0 8px 24px rgba(0, 0, 0, 0.8), 0 4px 8px rgba(0, 0, 0, 0.6)',
+        'xl':  '0 16px 48px rgba(0, 0, 0, 0.9), 0 8px 16px rgba(0, 0, 0, 0.6)',
+        '2xl': '0 24px 64px rgba(0, 0, 0, 0.95)',
 
-        // Sombras accent — para CTAs e elementos em foco
-        'accent':    '0 4px 20px rgba(109, 94, 246, 0.35)',
-        'accent-lg': '0 8px 40px rgba(109, 94, 246, 0.5)',
-        'accent-xl': '0 12px 60px rgba(109, 94, 246, 0.6)',
+        // Sombras accent — para CTAs dourados
+        'accent':    '0 4px 20px rgba(212, 175, 55, 0.25)',
+        'accent-lg': '0 8px 40px rgba(212, 175, 55, 0.4)',
+        'accent-xl': '0 12px 60px rgba(212, 175, 55, 0.5)',
 
         // Glow (usado em ícones de seção, logos em hover)
-        'glow-indigo':  '0 0 20px rgba(109, 94, 246, 0.5)',
-        'glow-violet':  '0 0 20px rgba(139, 92, 246, 0.4)',
+        'glow-gold':  '0 0 20px rgba(212, 175, 55, 0.4)',
+        'glow-amber': '0 0 20px rgba(245, 158, 11, 0.3)',
 
-        // Glass — para cards com glassmorphism
-        'glass':        '0 8px 32px rgba(4, 4, 12, 0.5), inset 0 1px 0 rgba(255,255,255,0.06)',
-        'glass-hover':  '0 16px 48px rgba(4, 4, 12, 0.6), inset 0 1px 0 rgba(255,255,255,0.1)',
+        // Glass — para cards com glassmorphism (linhas brancas muito sutis)
+        'glass':        '0 8px 32px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,255,255,0.04)',
+        'glass-hover':  '0 16px 48px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255,255,255,0.08)',
 
         // Inner shadows
-        'inner-sm': 'inset 0 1px 3px rgba(4, 4, 12, 0.5)',
-        'inner':    'inset 0 2px 6px rgba(4, 4, 12, 0.6)',
+        'inner-sm': 'inset 0 1px 3px rgba(0, 0, 0, 0.6)',
+        'inner':    'inset 0 2px 6px rgba(0, 0, 0, 0.7)',
         none: 'none',
       },
 
@@ -266,29 +266,29 @@ export default {
       // GRADIENTES
       // ════════════════════════════════════════════════════════════════════
       backgroundImage: {
-        // Backgrounds de seção
-        'page':              'linear-gradient(180deg, #080810 0%, #080810 100%)',
-        'section-alt':       'linear-gradient(180deg, #0f0f1e 0%, #080810 100%)',
-        'hero':              'radial-gradient(ellipse 80% 60% at 50% -10%, rgba(109,94,246,0.18) 0%, transparent 70%), linear-gradient(180deg, #080810 0%, #0f0f1e 100%)',
+        // Backgrounds de seção (Preto)
+        'page':              'linear-gradient(180deg, #000000 0%, #000000 100%)',
+        'section-alt':       'linear-gradient(180deg, #0a0a0a 0%, #000000 100%)',
+        'hero':              'radial-gradient(ellipse 80% 60% at 50% -10%, rgba(212,175,55,0.12) 0%, transparent 70%), linear-gradient(180deg, #000000 0%, #0a0a0a 100%)',
 
-        // Accent gradients — para botões e elementos de destaque
-        'indigo-gradient':   'linear-gradient(135deg, #6d5ef6 0%, #5244c8 100%)',
-        'indigo-gradient-h': 'linear-gradient(90deg, #6d5ef6 0%, #5244c8 100%)',
-        'violet-gradient':   'linear-gradient(135deg, #8b5cf6 0%, #6d5ef6 100%)',
-        'purple-fade':       'linear-gradient(135deg, #8b5cf6 0%, #6d5ef6 50%, #4f3fcf 100%)',
+        // Accent gradients — Dourados
+        'gold-gradient':   'linear-gradient(135deg, #D4AF37 0%, #B89222 100%)',
+        'gold-gradient-h': 'linear-gradient(90deg, #D4AF37 0%, #B89222 100%)',
+        'amber-gradient':  'linear-gradient(135deg, #F59E0B 0%, #D4AF37 100%)',
+        'purple-fade':       'linear-gradient(135deg, #F59E0B 0%, #D4AF37 50%, #997800 100%)', // mantendo o nome da key, mas a cor é dourada
 
-        // Glass gradient — para cards glassmorphism
-        'glass':             'linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)',
-        'glass-border':      'linear-gradient(135deg, rgba(109,94,246,0.3) 0%, rgba(109,94,246,0.05) 100%)',
+        // Glass gradient — bordas finas claras
+        'glass':             'linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)',
+        'glass-border':      'linear-gradient(135deg, rgba(212,175,55,0.2) 0%, rgba(212,175,55,0.02) 100%)',
 
-        // Decorativos — efeitos de brilho em seções
-        'glow-top':          'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(109,94,246,0.15) 0%, transparent 70%)',
-        'glow-center':       'radial-gradient(ellipse 50% 50% at 50% 50%, rgba(109,94,246,0.12) 0%, transparent 70%)',
+        // Decorativos — brilhos sutis
+        'glow-top':          'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(212,175,55,0.1) 0%, transparent 70%)',
+        'glow-center':       'radial-gradient(ellipse 50% 50% at 50% 50%, rgba(212,175,55,0.08) 0%, transparent 70%)',
         'noise':             "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E\")",
 
-        // Separadores de seção
-        'fade-bottom':       'linear-gradient(180deg, transparent 0%, #080810 100%)',
-        'fade-top':          'linear-gradient(0deg, transparent 0%, #080810 100%)',
+        // Separadores de seção em preto absoluto
+        'fade-bottom':       'linear-gradient(180deg, transparent 0%, #000000 100%)',
+        'fade-top':          'linear-gradient(0deg, transparent 0%, #000000 100%)',
       },
 
       // ════════════════════════════════════════════════════════════════════
@@ -369,8 +369,8 @@ export default {
           '50%':      { transform: 'translateY(-14px)' },
         },
         glow: {
-          '0%':   { boxShadow: '0 0 8px rgba(109,94,246,0.3)' },
-          '100%': { boxShadow: '0 0 32px rgba(109,94,246,0.7)' },
+          '0%':   { boxShadow: '0 0 8px rgba(212,175,55,0.2)' },
+          '100%': { boxShadow: '0 0 32px rgba(212,175,55,0.5)' },
         },
         shimmer: {
           '0%':   { backgroundPosition: '-1000px 0' },

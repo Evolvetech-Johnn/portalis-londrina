@@ -39,7 +39,7 @@ const Hero = memo(function Hero() {
 
       {/* Elementos decorativos do background */}
       <div className="absolute inset-0 noise-overlay"></div>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-indigo-600/15 blur-[120px] rounded-full pointer-events-none"></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gold-600/15 blur-[120px] rounded-full pointer-events-none"></div>
 
       <div className="container-lp relative z-10">
         <motion.div 
@@ -49,13 +49,13 @@ const Hero = memo(function Hero() {
           className="max-w-4xl mx-auto text-center"
         >
           <motion.div variants={itemVariants}>
-            <span className="badge-indigo mb-6 inline-flex">
+            <span className="badge-gold mb-6 inline-flex">
               Tráfego Pago Especializado
             </span>
           </motion.div>
           
           <motion.h1 variants={itemVariants} className="mb-6 text-slate-50">
-            Pare de dividir comissões com portais que entregam <span className="text-gradient-indigo">leads frios.</span>
+            Pare de dividir comissões com portais que entregam <span className="text-gradient-gold">leads frios.</span>
           </motion.h1>
           
           <motion.p variants={itemVariants} className="text-xl sm:text-2xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">

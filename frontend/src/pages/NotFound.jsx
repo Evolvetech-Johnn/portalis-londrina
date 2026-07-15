@@ -13,14 +13,14 @@ export default function NotFound() {
 
       <section className="relative min-h-[80vh] flex flex-col items-center justify-center pt-24 pb-16 overflow-hidden bg-obsidian-900">
         <div className="absolute inset-0 noise-overlay"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg h-[400px] bg-indigo-600/10 blur-[100px] rounded-full pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg h-[400px] bg-gold-600/10 blur-[100px] rounded-full pointer-events-none"></div>
 
         <div className="container-lp relative z-10 text-center">
           <motion.div 
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-indigo-600/10 text-indigo-400 mb-8"
+            className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gold-600/10 text-gold-400 mb-8"
           >
             <Map className="w-12 h-12" />
           </motion.div>

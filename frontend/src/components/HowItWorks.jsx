@@ -37,7 +37,7 @@ export default function HowItWorks() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="badge-indigo mb-4 inline-flex">O Processo</span>
+          <span className="badge-gold mb-4 inline-flex">O Processo</span>
           <h2>Do zero aos primeiros leads em <span className="text-gradient">4 passos.</span></h2>
         </motion.div>
 
@@ -45,7 +45,7 @@ export default function HowItWorks() {
           {/* Linha conectora (visível apenas desktop) */}
           <div className="hidden lg:block absolute top-10 left-12 right-12 h-[2px] bg-obsidian-800 z-0">
             <motion.div 
-              className="h-full bg-indigo-600/30 w-full"
+              className="h-full bg-gold-600/30 w-full"
               initial={{ scaleX: 0, originX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true, amount: 0.2 }}
@@ -73,7 +73,7 @@ function StepCard({ step, delay }) {
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.5, delay, ease: [0.34, 1.56, 0.64, 1] }}
     >
-      <div className="icon-box-lg bg-obsidian-900 border-2 border-slate-800 group-hover:border-indigo-500 group-hover:shadow-glow-indigo transition-all duration-300 mb-6">
+      <div className="icon-box-lg bg-obsidian-900 border-2 border-slate-800 group-hover:border-gold-500 group-hover:shadow-glow-gold transition-all duration-300 mb-6">
         {step.icon}
       </div>
       <h4 className="mb-3 text-slate-50">{step.title}</h4>

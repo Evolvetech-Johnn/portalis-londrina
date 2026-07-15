@@ -8,7 +8,7 @@ export default function AdminProtectedRoute() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-obsidian-950 flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-indigo-500" />
+        <Loader2 className="w-8 h-8 animate-spin text-gold-500" />
       </div>
     );
   }

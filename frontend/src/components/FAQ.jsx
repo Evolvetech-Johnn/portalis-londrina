@@ -54,7 +54,7 @@ function AccordionItem({ faq }) {
     <div className="border border-slate-800 rounded-xl overflow-hidden bg-obsidian-800 transition-all duration-300 hover:border-slate-700">
       <button
         type="button"
-        className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:bg-obsidian-700"
+        className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-600 focus-visible:bg-obsidian-700"
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
       >
@@ -64,7 +64,7 @@ function AccordionItem({ faq }) {
           transition={{ duration: 0.3 }}
           className="shrink-0"
         >
-          <ChevronDown className={`w-5 h-5 text-slate-400 ${isOpen ? 'text-indigo-400' : ''}`} />
+          <ChevronDown className={`w-5 h-5 text-slate-400 ${isOpen ? 'text-gold-400' : ''}`} />
         </motion.div>
       </button>
       

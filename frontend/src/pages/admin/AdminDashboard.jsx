@@ -32,7 +32,7 @@ export default function AdminDashboard() {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-full">
-        <Loader2 className="w-8 h-8 animate-spin text-indigo-500" />
+        <Loader2 className="w-8 h-8 animate-spin text-gold-500" />
       </div>
     );
   }
@@ -63,8 +63,8 @@ export default function AdminDashboard() {
           title="Total de Leads" 
           value={total} 
           icon={Users} 
-          color="text-indigo-400" 
-          bg="bg-indigo-400/10" 
+          color="text-gold-400" 
+          bg="bg-gold-400/10" 
         />
         <MetricCard 
           title="Valor do Pipeline" 

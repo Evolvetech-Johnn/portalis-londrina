@@ -29,7 +29,7 @@ export default function AdminLayout() {
       <aside className="w-64 bg-obsidian-900 border-r border-slate-800 flex flex-col">
         <div className="h-16 flex items-center px-6 border-b border-slate-800">
           <span className="text-xl font-heading font-bold text-slate-50 tracking-wide">
-            Portalis<span className="text-indigo-500">.</span>Admin
+            Portalis<span className="text-gold-500">.</span>Admin
           </span>
         </div>
 
@@ -45,7 +45,7 @@ export default function AdminLayout() {
                     to={item.path}
                     className={`flex items-center gap-3 px-3 py-2 rounded-md transition-colors ${
                       isActive 
-                        ? 'bg-indigo-600/10 text-indigo-400 font-medium' 
+                        ? 'bg-gold-600/10 text-gold-400 font-medium' 
                         : 'text-slate-400 hover:text-slate-50 hover:bg-slate-800'
                     }`}
                   >
@@ -61,7 +61,7 @@ export default function AdminLayout() {
         {/* User Info & Logout */}
         <div className="p-4 border-t border-slate-800">
           <div className="flex items-center gap-3 px-2 mb-4">
-            <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold text-sm">
+            <div className="w-8 h-8 rounded-full bg-gold-600 flex items-center justify-center text-white font-bold text-sm">
               {user?.nome?.charAt(0) || 'A'}
             </div>
             <div className="flex-1 min-w-0">
