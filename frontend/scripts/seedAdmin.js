@@ -1,39 +1,56 @@
 /**
- * seedAdmin.js — Script one-shot para criar o usuário administrador inicial.
+ * scripts/seedAdmin.js
  *
- * Como rodar (apenas uma vez):
- *   1. Certifique-se que o .env.local tem ADMIN_EMAIL e ADMIN_PASSWORD
- *   2. cd frontend
- *   3. node --env-file=.env.local scripts/seedAdmin.js
+ * Cria o usuário administrador inicial no Supabase.
+ * Rode UMA VEZ localmente: node frontend/scripts/seedAdmin.js
  *
- * NUNCA commite esse script com credenciais reais.
- * NUNCA rode em produção mais de uma vez (verificação de duplicata já protege).
+ * Requer no .env.local:
+ *   SUPABASE_URL=...
+ *   SUPABASE_SERVICE_KEY=...
+ *   ADMIN_NOME=Seu Nome
+ *   ADMIN_EMAIL=seu@email.com
+ *   ADMIN_PASSWORD=SenhaForte123!
  */
 
 import { createClient } from '@supabase/supabase-js';
 import bcrypt from 'bcryptjs';
+import { readFileSync } from 'fs';
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
 
-// Lê do ambiente
-const SUPABASE_URL         = process.env.SUPABASE_URL;
-const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY;
-const ADMIN_EMAIL          = process.env.ADMIN_EMAIL;
-const ADMIN_PASSWORD       = process.env.ADMIN_PASSWORD;
-const ADMIN_NOME           = process.env.ADMIN_NOME || 'Administrador';
+// Carregar .env.local manualmente (sem dotenv, para simplicidade)
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const envPath = resolve(__dirname, '../.env.local');
 
-// Validação das variáveis
-const missing = ['SUPABASE_URL', 'SUPABASE_SERVICE_KEY', 'ADMIN_EMAIL', 'ADMIN_PASSWORD']
-  .filter(k => !process.env[k]);
+let env = {};
+try {
+  const raw = readFileSync(envPath, 'utf-8');
+  raw.split('\n').forEach(line => {
+    const [key, ...rest] = line.split('=');
+    if (key && !key.startsWith('#')) {
+      env[key.trim()] = rest.join('=').trim();
+    }
+  });
+} catch {
+  console.error('❌ .env.local não encontrado. Crie o arquivo com as variáveis necessárias.');
+  process.exit(1);
+}
 
-if (missing.length > 0) {
-  console.error(`❌ Variáveis de ambiente faltando: ${missing.join(', ')}`);
-  console.error('   Rode com: node --env-file=.env.local scripts/seedAdmin.js');
+const SUPABASE_URL       = env.SUPABASE_URL;
+const SUPABASE_SERVICE_KEY = env.SUPABASE_SERVICE_KEY;
+const ADMIN_NOME         = env.ADMIN_NOME        || 'Admin';
+const ADMIN_EMAIL        = env.ADMIN_EMAIL;
+const ADMIN_PASSWORD     = env.ADMIN_PASSWORD;
+
+if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY || !ADMIN_EMAIL || !ADMIN_PASSWORD) {
+  console.error('❌ Preencha SUPABASE_URL, SUPABASE_SERVICE_KEY, ADMIN_EMAIL e ADMIN_PASSWORD no .env.local');
   process.exit(1);
 }
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
 
 async function seed() {
-  console.log(`\n🌱 Criando usuário admin: ${ADMIN_EMAIL}\n`);
+  console.log(`🔐 Criando admin: ${ADMIN_EMAIL}`);
 
   // Verificar se já existe
   const { data: existing } = await supabase
@@ -43,19 +60,19 @@ async function seed() {
     .single();
 
   if (existing) {
-    console.log('⚠️  Usuário admin já existe. Nenhuma alteração feita.');
+    console.log('⚠️  Usuário já existe. Nenhuma alteração foi feita.');
     process.exit(0);
   }
 
-  // Hash da senha (12 rounds = seguro e rápido)
+  // Hash da senha (12 rounds = seguro e razoavelmente rápido)
   const senha_hash = await bcrypt.hash(ADMIN_PASSWORD, 12);
 
-  // Inserir no banco
-  const { data, error } = await supabase
-    .from('admin_users')
-    .insert({ nome: ADMIN_NOME, email: ADMIN_EMAIL.toLowerCase(), senha_hash, role: 'admin' })
-    .select('id, nome, email, role')
-    .single();
+  const { error } = await supabase.from('admin_users').insert({
+    nome:       ADMIN_NOME,
+    email:      ADMIN_EMAIL.toLowerCase(),
+    senha_hash,
+    role:       'admin',
+  });
 
   if (error) {
     console.error('❌ Erro ao criar admin:', error.message);
@@ -63,11 +80,10 @@ async function seed() {
   }
 
   console.log('✅ Admin criado com sucesso!');
-  console.log(`   ID:    ${data.id}`);
-  console.log(`   Nome:  ${data.nome}`);
-  console.log(`   Email: ${data.email}`);
-  console.log(`   Role:  ${data.role}`);
-  console.log('\n   Guarde bem o email e senha — eles não podem ser recuperados sem acesso ao banco.\n');
+  console.log(`   Nome:  ${ADMIN_NOME}`);
+  console.log(`   Email: ${ADMIN_EMAIL}`);
+  console.log('   Senha: [HASH — nunca fica em texto puro]');
+  console.log('\n⚠️  REMOVA ADMIN_PASSWORD do .env.local agora que o usuário foi criado.');
 }
 
 seed();
