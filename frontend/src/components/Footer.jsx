@@ -23,6 +23,9 @@ export default function Footer() {
               <a href="#" className="w-10 h-10 rounded-full bg-obsidian-800 flex items-center justify-center text-slate-400 hover:bg-indigo-600/20 hover:text-indigo-400 transition-colors font-medium text-xs" aria-label="LinkedIn">
                 IN
               </a>
+              <a href="https://wa.me/5543988704856" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-obsidian-800 flex items-center justify-center text-slate-400 hover:bg-[#25D366]/20 hover:text-[#25D366] transition-colors font-medium text-xs" aria-label="WhatsApp">
+                WA
+              </a>
               <a href="mailto:contato@portalis.com.br" className="w-10 h-10 rounded-full bg-obsidian-800 flex items-center justify-center text-slate-400 hover:bg-indigo-600/20 hover:text-indigo-400 transition-colors" aria-label="Email">
                 <Mail className="w-5 h-5" />
               </a>

@@ -72,7 +72,7 @@ export default function ThankYou() {
             >
               {/* WhatsApp CTA */}
               <a 
-                href="https://wa.me/5511999999999?text=Olá,%20acabei%20de%20solicitar%20um%20diagnóstico%20pelo%20site%20da%20Portalis!" 
+                href="https://wa.me/5543988704856?text=Olá,%20acabei%20de%20solicitar%20um%20diagnóstico%20pelo%20site%20da%20Portalis!" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="btn-primary-lg w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-none"
