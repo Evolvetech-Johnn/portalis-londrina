@@ -64,10 +64,19 @@ const useLeadForm = () => {
 
         clearTimeout(timeoutId);
 
+        // Verifica se a resposta não é JSON (ex: erro 500 HTML do Vercel)
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+          const text = await response.text();
+          if (response.status === 500 && text.includes('FUNCTION_INVOCATION_FAILED')) {
+            throw new Error('Servidor não configurado. Adicione as chaves do Supabase no Vercel e faça Redeploy.');
+          }
+          throw new Error('Erro de servidor. Tente novamente mais tarde.');
+        }
+
         const data = await response.json();
 
         if (!response.ok) {
-          // Captura erros de validação retornados pelo backend (ex: array de errors)
           if (data.errors && data.errors.length > 0) {
             throw new Error(data.errors.map(err => err.msg).join(', '));
           }
