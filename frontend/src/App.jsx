@@ -19,6 +19,14 @@ import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
 import TermsOfUse from './pages/TermsOfUse.jsx';
 import NotFound from './pages/NotFound.jsx';
 
+// Admin
+import { AuthProvider } from './contexts/AuthContext.jsx';
+import AdminProtectedRoute from './components/admin/AdminProtectedRoute.jsx';
+import AdminLayout from './layouts/AdminLayout.jsx';
+import AdminLogin from './pages/admin/AdminLogin.jsx';
+import AdminDashboard from './pages/admin/AdminDashboard.jsx';
+import AdminLeads from './pages/admin/AdminLeads.jsx';
+
 // ── Componente ───────────────────────────────────────────────────────────────
 export default function App() {
   return (
@@ -31,15 +39,30 @@ export default function App() {
         <meta property="og:type" content="website" />
       </Helmet>
       
-      <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<Home />} />
-          <Route path="obrigado" element={<ThankYou />} />
-          <Route path="privacidade" element={<PrivacyPolicy />} />
-          <Route path="termos" element={<TermsOfUse />} />
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<Home />} />
+            <Route path="obrigado" element={<ThankYou />} />
+            <Route path="privacidade" element={<PrivacyPolicy />} />
+            <Route path="termos" element={<TermsOfUse />} />
+          </Route>
+
+          {/* Admin Routes */}
+          <Route path="/admin">
+            <Route path="login" element={<AdminLogin />} />
+            
+            <Route element={<AdminProtectedRoute />}>
+              <Route element={<AdminLayout />}>
+                <Route path="dashboard" element={<AdminDashboard />} />
+                <Route path="leads" element={<AdminLeads />} />
+              </Route>
+            </Route>
+          </Route>
+
           <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   );
 }
