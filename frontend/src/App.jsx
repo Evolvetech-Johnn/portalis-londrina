@@ -6,7 +6,7 @@
  * Toda lógica fica nos hooks em /hooks e nos componentes filhos.
  */
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
 // Layout
@@ -50,6 +50,9 @@ export default function App() {
 
           {/* Admin Routes */}
           <Route path="/admin">
+            {/* Redirect /admin to /admin/dashboard */}
+            <Route index element={<Navigate to="dashboard" replace />} />
+            
             <Route path="login" element={<AdminLogin />} />
             
             <Route element={<AdminProtectedRoute />}>
