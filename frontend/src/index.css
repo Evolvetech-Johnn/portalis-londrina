@@ -1,41 +1,35 @@
 /* ============================================================
-   PORTALIS — Global CSS
-   Paleta: Obsidian & Electric Gold
-   Tipografia: DM Serif Display (headings) + Inter (corpo)
-   Documentação: src/styles/tokens.md
-   ============================================================ */
+ * PORTALIS — Global CSS
+ * Paleta: Obsidian & Premium Gold
+ * Tipografia: DM Serif Display (headings) + Inter (corpo)
+ * Documentação: src/styles/tokens.md
+ * ============================================================ */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* ════════════════════════════════════════════════════════════
-   BASE — Reset e defaults globais
-   ════════════════════════════════════════════════════════════ */
+ * BASE — Reset e defaults globais
+ * ════════════════════════════════════════════════════════════ */
 @layer base {
   /* ── Documento ─────────────────────────────────────────── */
   html {
     @apply scroll-smooth;
-    /* Previne scroll horizontal acidental em mobile */
     overflow-x: hidden;
-    /* Melhora renderização de fontes no macOS */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    @apply bg-obsidian-900 text-slate-50 font-sans;
-    /* Linha base de leitura confortável */
+    @apply bg-obsidian-900 text-slate-200 font-sans;
     line-height: 1.6;
-    /* Previne orphans em texto */
     text-wrap: pretty;
   }
 
   /* ── Hierarquia tipográfica ────────────────────────────── */
-  /* DM Serif Display para todos os headings por padrão */
   h1, h2, h3 {
     @apply font-heading font-normal leading-tight;
-    /* Letter-spacing negativo para headings grandes */
     letter-spacing: -0.03em;
   }
 
@@ -52,17 +46,17 @@
   h6 { @apply text-base sm:text-lg; }
 
   p {
-    @apply text-base text-slate-300 leading-relaxed;
+    @apply text-base text-slate-400 leading-relaxed;
   }
 
   a {
-    @apply text-gold-300 transition-colors duration-200;
+    @apply text-gold-400 transition-colors duration-200;
   }
   a:hover {
-    @apply text-gold-200;
+    @apply text-gold-300;
   }
   a:focus-visible {
-    @apply outline-none ring-2 ring-gold-600 ring-offset-2 ring-offset-obsidian-900 rounded-sm;
+    @apply outline-none ring-2 ring-gold-500 ring-offset-2 ring-offset-obsidian-900 rounded-sm;
   }
 
   /* ── Imagens ───────────────────────────────────────────── */
@@ -72,19 +66,19 @@
 
   /* ── Seleção de texto ──────────────────────────────────── */
   ::selection {
-    background-color: rgba(109, 94, 246, 0.35);
-    color: #f4f3ff;
+    background-color: rgba(208, 160, 64, 0.35);
+    color: #F2F2F2;
   }
 
   /* ── Scrollbar (Webkit) ────────────────────────────────── */
   ::-webkit-scrollbar          { width: 6px; }
-  ::-webkit-scrollbar-track    { background: #0f0f1e; }
-  ::-webkit-scrollbar-thumb    { background: #6d5ef6; border-radius: 9999px; }
-  ::-webkit-scrollbar-thumb:hover { background: #7f72f7; }
+  ::-webkit-scrollbar-track    { background: #111111; }
+  ::-webkit-scrollbar-thumb    { background: #D0A040; border-radius: 9999px; }
+  ::-webkit-scrollbar-thumb:hover { background: #E3B454; }
 
   /* ── Focus padrão (acessibilidade teclado) ─────────────── */
   :focus-visible {
-    @apply outline-none ring-2 ring-gold-600 ring-offset-2 ring-offset-obsidian-900;
+    @apply outline-none ring-2 ring-gold-500 ring-offset-2 ring-offset-obsidian-900;
   }
 
   /* ── Formulários ───────────────────────────────────────── */
@@ -105,29 +99,20 @@
 }
 
 /* ════════════════════════════════════════════════════════════
-   COMPONENTS — Classes reutilizáveis do design system
-   REGRA: Nenhum componente JSX deve ter lógica de estilo ad-hoc
-   que poderia ser capturada aqui.
-   ════════════════════════════════════════════════════════════ */
+ * COMPONENTS — Classes reutilizáveis do design system
+ * ════════════════════════════════════════════════════════════ */
 @layer components {
 
   /* ── Botões ────────────────────────────────────────────── */
-
-  /**
-   * .btn-primary — CTA principal (gold gradient)
-   * Estados: hover (brilho intenso) | focus (ring) | active (scale down) | disabled
-   * Uso: <button class="btn-primary">Quero mais leads</button>
-   */
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2
-           bg-gold-gradient-h text-white font-semibold text-sm
+           bg-gold-500 text-obsidian-900 font-semibold text-sm
            px-6 py-3.5 rounded-lg
            shadow-accent
            transition-all duration-200
-           hover:shadow-accent-lg hover:scale-[1.03] hover:brightness-110
-           active:scale-[0.97] active:shadow-accent
-           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-600
-           focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian-900
+           hover:bg-gold-400 hover:shadow-accent-lg hover:scale-[1.03]
+           active:bg-gold-600 active:scale-[0.97] active:shadow-accent
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian-900
            disabled:opacity-40 disabled:cursor-not-allowed disabled:scale-100 disabled:shadow-none
            select-none;
   }
@@ -140,20 +125,15 @@
     @apply btn-primary px-4 py-2 text-xs rounded-md;
   }
 
-  /**
-   * .btn-secondary — Outline/ghost com accent gold
-   * Uso: <button class="btn-secondary">Saiba mais</button>
-   */
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2
-           bg-transparent text-gold-400 font-semibold text-sm
+           bg-transparent text-gold-500 font-semibold text-sm
            px-6 py-3.5 rounded-lg
-           border border-gold-600/40
+           border border-gold-500
            transition-all duration-200
-           hover:border-gold-500 hover:bg-gold-600/10 hover:text-gold-300
+           hover:bg-gold-500/12
            active:scale-[0.97]
-           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-600
-           focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian-900
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian-900
            disabled:opacity-40 disabled:cursor-not-allowed
            select-none;
   }
@@ -162,44 +142,33 @@
     @apply btn-secondary px-8 py-4 text-base rounded-xl;
   }
 
-  /**
-   * .btn-ghost — Sem borda, texto apenas
-   */
   .btn-ghost {
     @apply inline-flex items-center justify-center gap-2
-           bg-transparent text-slate-400 font-medium text-sm
+           bg-transparent text-slate-700 font-medium text-sm
            px-4 py-2 rounded-lg
            transition-all duration-200
-           hover:text-slate-200 hover:bg-slate-800/50
+           hover:text-slate-400 hover:bg-slate-800/50
            active:scale-[0.97]
-           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-600
-           focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian-900
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian-900
            disabled:opacity-40 disabled:cursor-not-allowed
            select-none;
   }
 
   /* ── Cards ─────────────────────────────────────────────── */
-
-  /**
-   * .card — Card padrão com glassmorphism
-   */
   .card {
-    @apply bg-obsidian-700 border border-slate-800 rounded-xl
+    @apply bg-obsidian-700 border border-gold-500/12 rounded-xl
            shadow-lg
            transition-all duration-300;
   }
 
   .card-hover {
-    @apply card hover:border-gold-600/30 hover:shadow-glass-hover hover:-translate-y-1;
+    @apply card hover:border-gold-500/30 hover:shadow-glow-gold-subtle hover:-translate-y-1;
   }
 
-  /**
-   * .card-glass — Glassmorphism com borda sutil
-   */
   .card-glass {
     @apply rounded-xl shadow-glass
            transition-all duration-300;
-    background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+    background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%);
     border: 1px solid rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -211,24 +180,17 @@
   }
 
   .card-glass-hover:hover {
-    border-color: rgba(109, 94, 246, 0.25);
-    background: linear-gradient(135deg, rgba(109,94,246,0.08) 0%, rgba(255,255,255,0.03) 100%);
+    border-color: rgba(208, 160, 64, 0.25);
+    background: linear-gradient(135deg, rgba(208,160,64,0.08) 0%, rgba(255,255,255,0.03) 100%);
   }
 
-  /**
-   * .card-accent — Card com borda/glow gold (destaque)
-   */
   .card-accent {
-    @apply card border-gold-600/40 shadow-accent;
+    @apply card border-gold-500/40 shadow-accent;
   }
 
   /* ── Formulários ───────────────────────────────────────── */
-
-  /**
-   * .form-label — Label padrão
-   */
   .form-label {
-    @apply block text-sm font-medium text-slate-300 mb-1.5;
+    @apply block text-sm font-medium text-slate-400 mb-1.5;
   }
 
   .form-label-required::after {
@@ -236,20 +198,15 @@
     @apply text-gold-400;
   }
 
-  /**
-   * .input-field — Input / Textarea padrão
-   * Estados: default | hover | focus | error | disabled
-   */
   .input-field {
     @apply w-full
-           bg-obsidian-700 border border-slate-800
-           text-slate-50 placeholder-slate-500
+           bg-obsidian-600 border border-slate-800
+           text-slate-200 placeholder-slate-700
            rounded-lg px-4 py-3 text-sm
            shadow-inner-sm
            transition-all duration-200
            hover:border-slate-700
-           focus:outline-none focus:ring-2 focus:ring-gold-600/50 focus:border-gold-600
-           focus:bg-obsidian-600
+           focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500
            disabled:opacity-40 disabled:cursor-not-allowed;
   }
 
@@ -266,19 +223,11 @@
   }
 
   /* ── Layout ────────────────────────────────────────────── */
-
-  /**
-   * .container-lp — Container padrão da landing page
-   * Max 1200px, padding responsivo
-   */
   .container-lp {
     @apply mx-auto w-full max-w-container
            px-4 sm:px-6 lg:px-8;
   }
 
-  /**
-   * .section — Seção padrão com padding vertical
-   */
   .section {
     @apply py-16 sm:py-20 lg:py-28 relative overflow-hidden;
   }
@@ -288,10 +237,6 @@
   }
 
   /* ── Badges & Pills ────────────────────────────────────── */
-
-  /**
-   * .badge — Badge genérica
-   */
   .badge {
     @apply inline-flex items-center gap-1.5
            text-xs font-semibold uppercase tracking-wider
@@ -300,7 +245,7 @@
 
   .badge-gold {
     @apply badge
-           bg-gold-600/15 text-gold-300 border border-gold-600/30;
+           bg-gold-500/15 text-gold-300 border border-gold-500/30;
   }
 
   .badge-success {
@@ -310,7 +255,7 @@
 
   .badge-neutral {
     @apply badge
-           bg-slate-800 text-slate-400 border border-slate-700;
+           bg-slate-800 text-slate-700 border border-slate-700;
   }
 
   /* ── Divisores decorativos ─────────────────────────────── */
@@ -320,13 +265,13 @@
 
   .divider-gradient {
     @apply w-full h-px;
-    background: linear-gradient(90deg, transparent, rgba(109,94,246,0.5), transparent);
+    background: linear-gradient(90deg, transparent, rgba(208,160,64,0.5), transparent);
   }
 
   /* ── Ícone container ───────────────────────────────────── */
   .icon-box {
     @apply flex items-center justify-center rounded-xl
-           bg-gold-600/15 border border-gold-600/20
+           bg-gold-500/15 border border-gold-500/20
            text-gold-400
            transition-all duration-300;
   }
@@ -336,19 +281,19 @@
   .icon-box-lg  { @apply icon-box w-16 h-16; }
 
   .icon-box-hover {
-    @apply icon-box hover:bg-gold-600/25 hover:border-gold-600/40
+    @apply icon-box hover:bg-gold-500/25 hover:border-gold-500/40
            hover:shadow-glow-gold hover:text-gold-300;
   }
 }
 
 /* ════════════════════════════════════════════════════════════
-   UTILITIES — Utilitários customizados
-   ════════════════════════════════════════════════════════════ */
+ * UTILITIES — Utilitários customizados
+ * ════════════════════════════════════════════════════════════ */
 @layer utilities {
 
   /* ── Texto com gradiente ───────────────────────────────── */
   .text-gradient {
-    @apply bg-amber-gradient bg-clip-text text-transparent;
+    @apply bg-gold-gradient bg-clip-text text-transparent;
   }
 
   .text-gradient-gold {
@@ -364,10 +309,10 @@
   }
 
   .glass-gold {
-    background: rgba(109, 94, 246, 0.06);
+    background: rgba(208, 160, 64, 0.06);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(109, 94, 246, 0.2);
+    border: 1px solid rgba(208, 160, 64, 0.2);
   }
 
   /* ── Noise texture overlay ─────────────────────────────── */
@@ -389,7 +334,7 @@
     position: absolute;
     inset: -1px;
     border-radius: inherit;
-    background: linear-gradient(135deg, rgba(109,94,246,0.6), rgba(139,92,246,0.3), rgba(109,94,246,0.1));
+    background: linear-gradient(135deg, rgba(208,160,64,0.6), rgba(176,125,49,0.3), rgba(208,160,64,0.1));
     z-index: -1;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -401,11 +346,11 @@
   /* ── Gradient text shimmer ─────────────────────────────── */
   .text-shimmer {
     background: linear-gradient(90deg,
-      #f4f3ff 0%,
-      #9d93f8 30%,
-      #6d5ef6 50%,
-      #9d93f8 70%,
-      #f4f3ff 100%
+      #F2F2F2 0%,
+      #D0A040 30%,
+      #E3B454 50%,
+      #D0A040 70%,
+      #F2F2F2 100%
     );
     background-size: 200% auto;
     -webkit-background-clip: text;
@@ -426,7 +371,7 @@
     transform: translateX(-50%);
     width: 60%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(109,94,246,0.6), transparent);
+    background: linear-gradient(90deg, transparent, rgba(208,160,64,0.5), transparent);
   }
 
   /* ── Reduce motion — respeita preferência do usuário ─── */

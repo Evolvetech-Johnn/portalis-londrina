@@ -48,9 +48,7 @@ export default function AdminLogin() {
       
       <div className="w-full max-w-md">
         <div className="text-center mb-10">
-          <h1 className="text-3xl font-heading font-bold text-slate-50 tracking-wide mb-2">
-            Portalis<span className="text-gold-500">.</span>Admin
-          </h1>
+          <img src="/logoportalis.png" alt="Portalis Logo" className="h-12 w-auto mx-auto mb-2" />
           <p className="text-slate-400">Acesse o painel de gerenciamento de leads</p>
         </div>
 

@@ -41,10 +41,10 @@ export default async function handler(req, res) {
     });
   }
 
-  if (status === 'Perdido' && !VALID_MOTIVO.includes(motivo_perda)) {
+  if (status === 'Perdido' && (!motivo_perda || motivo_perda.trim() === '')) {
     return res.status(400).json({
       success: false,
-      message: `Informe o motivo da perda: ${VALID_MOTIVO.join(', ')}`
+      message: `Informe o motivo da perda.`
     });
   }
 

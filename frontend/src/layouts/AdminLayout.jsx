@@ -28,9 +28,7 @@ export default function AdminLayout() {
       {/* Sidebar */}
       <aside className="w-64 bg-obsidian-900 border-r border-slate-800 flex flex-col">
         <div className="h-16 flex items-center px-6 border-b border-slate-800">
-          <span className="text-xl font-heading font-bold text-slate-50 tracking-wide">
-            Portalis<span className="text-gold-500">.</span>Admin
-          </span>
+          <img src="/logoportalis.png" alt="Portalis Logo" className="h-8 w-auto" />
         </div>
 
         <div className="p-4 flex-1">

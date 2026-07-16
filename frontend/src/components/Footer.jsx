@@ -12,7 +12,7 @@ export default function Footer() {
           
           {/* Brand Col */}
           <div className="md:col-span-2">
-            <Link to="/" className="text-2xl font-heading text-slate-50 mb-4 inline-block hover:text-gold-400 transition-colors">Portalis</Link>
+            <Link to="/" className="mb-4 inline-block hover:opacity-80 transition-opacity"><img src="/logoportalis.png" alt="Portalis Logo" className="h-8 w-auto" /></Link>
             <p className="text-slate-400 max-w-sm mb-6">
               Agência especializada em tráfego pago B2B para o mercado imobiliário. Transformamos budget de marketing em leads exclusivos e previsíveis.
             </p>
