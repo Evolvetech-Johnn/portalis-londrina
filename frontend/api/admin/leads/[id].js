@@ -37,7 +37,7 @@ export default async function handler(req, res) {
 
   // ── PATCH — Atualizar dados gerais ────────────────────────────────────────
   if (req.method === 'PATCH') {
-    const { observacoes, valor_estimado, responsavel, motivo_perda, empresa, nome, whatsapp } = req.body ?? {};
+    const { observacoes, valor_estimado, responsavel, motivo_perda, empresa, nome, whatsapp, volume_mes } = req.body ?? {};
 
     // Campos permitidos para atualização geral
     const updates = {};
@@ -48,6 +48,7 @@ export default async function handler(req, res) {
     if (empresa        !== undefined) updates.empresa         = empresa;
     if (nome           !== undefined) updates.nome            = nome;
     if (whatsapp       !== undefined) updates.whatsapp        = whatsapp;
+    if (volume_mes     !== undefined) updates.volume_mes      = volume_mes;
 
     if (Object.keys(updates).length === 0) {
       return res.status(400).json({ success: false, message: 'Nenhum campo enviado para atualização.' });

@@ -147,13 +147,13 @@ export default function AdminLeads() {
         <DragDropContext onDragEnd={handleDragEnd}>
           <div className="flex gap-4 h-full items-start">
             {COLUMNS.map((column) => (
-              <div key={column} className="flex-shrink-0 w-80 flex flex-col h-full">
-                <div className="bg-obsidian-900/50 border border-slate-800 rounded-t-lg p-3 border-b-2"
+              <div key={column} className="flex-1 min-w-[140px] max-w-[320px] flex flex-col h-full">
+                <div className="bg-obsidian-900/50 border border-slate-800 rounded-t-lg p-2 border-b-2"
                   style={{ borderBottomColor: getColumnColor(column) }}
                 >
                   <div className="flex items-center justify-between">
-                    <h3 className="font-semibold text-slate-300 text-sm">{column}</h3>
-                    <span className="text-xs font-medium bg-slate-800 text-slate-400 px-2 py-0.5 rounded-full">
+                    <h3 className="font-semibold text-slate-300 text-xs truncate mr-2">{column}</h3>
+                    <span className="text-[10px] font-medium bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded-full shrink-0">
                       {getLeadsByColumn(column).length}
                     </span>
                   </div>
@@ -176,20 +176,20 @@ export default function AdminLeads() {
                               {...provided.draggableProps}
                               {...provided.dragHandleProps}
                               onClick={() => setSelectedLeadId(lead.id)}
-                              className={`mb-3 bg-obsidian-900 border border-slate-700 p-4 rounded-lg shadow-sm cursor-pointer hover:border-gold-500/50 transition-all ${
+                              className={`mb-2 bg-obsidian-900 border border-slate-700 p-3 rounded-lg shadow-sm cursor-pointer hover:border-gold-500/50 transition-all ${
                                 snapshot.isDragging ? 'shadow-lg ring-2 ring-gold-500/50' : ''
                               }`}
                             >
-                              <p className="font-semibold text-slate-100 text-sm mb-1">{lead.nome}</p>
+                              <p className="font-semibold text-slate-100 text-[13px] leading-tight mb-1 line-clamp-2">{lead.nome}</p>
                               {lead.empresa && (
-                                <p className="text-xs text-slate-400 mb-3">{lead.empresa}</p>
+                                <p className="text-[11px] text-slate-400 mb-2 truncate">{lead.empresa}</p>
                               )}
-                              <div className="flex items-center justify-between mt-4">
-                                <span className="text-xs text-slate-500">
+                              <div className="flex items-center justify-between mt-2">
+                                <span className="text-[10px] text-slate-500">
                                   {format(new Date(lead.criado_em), "dd MMM", { locale: ptBR })}
                                 </span>
                                 {lead.valor_estimado && (
-                                  <span className="text-xs font-medium text-success-400">
+                                  <span className="text-[10px] font-medium text-success-400 truncate ml-1">
                                     R$ {lead.valor_estimado}
                                   </span>
                                 )}
