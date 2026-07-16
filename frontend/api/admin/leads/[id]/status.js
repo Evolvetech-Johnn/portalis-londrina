@@ -5,7 +5,7 @@
  * Body: { status: string, motivo_perda?: string }
  */
 import { createClient } from '@supabase/supabase-js';
-import { requireAuth } from '../../../../_lib/verifyToken.js';
+import { requireAuth } from '../../../_lib/verifyToken.js';
 
 const VALID_STATUS = [
   'Novo', 'Contatado', 'Qualificado', 'Reunião Agendada',

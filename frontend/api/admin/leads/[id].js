@@ -4,7 +4,7 @@
  * DELETE /api/admin/leads/[id]  → soft delete (seta deleted_at)
  */
 import { createClient } from '@supabase/supabase-js';
-import { requireAuth } from '../../../_lib/verifyToken.js';
+import { requireAuth } from '../../_lib/verifyToken.js';
 
 const supabase = createClient(
   process.env.SUPABASE_URL || 'https://wmxyyxdloidbfcaphaox.supabase.co',
