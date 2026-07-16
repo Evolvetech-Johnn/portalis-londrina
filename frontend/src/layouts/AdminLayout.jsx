@@ -1,6 +1,6 @@
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { LayoutDashboard, Users, LogOut } from 'lucide-react';
+import { LayoutDashboard, Users, LogOut, Calendar } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 
 export default function AdminLayout() {
@@ -16,6 +16,7 @@ export default function AdminLayout() {
   const navItems = [
     { name: 'Dashboard', path: '/admin/dashboard', icon: LayoutDashboard },
     { name: 'CRM Kanban', path: '/admin/leads', icon: Users },
+    { name: 'Agenda', path: '/admin/agenda', icon: Calendar },
   ];
 
   return (

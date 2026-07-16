@@ -26,6 +26,7 @@ import AdminLayout from './layouts/AdminLayout.jsx';
 import AdminLogin from './pages/admin/AdminLogin.jsx';
 import AdminDashboard from './pages/admin/AdminDashboard.jsx';
 import AdminLeads from './pages/admin/AdminLeads.jsx';
+import AdminAgenda from './pages/admin/AdminAgenda.jsx';
 
 // ── Componente ───────────────────────────────────────────────────────────────
 export default function App() {
@@ -59,6 +60,7 @@ export default function App() {
               <Route element={<AdminLayout />}>
                 <Route path="dashboard" element={<AdminDashboard />} />
                 <Route path="leads" element={<AdminLeads />} />
+                <Route path="agenda" element={<AdminAgenda />} />
               </Route>
             </Route>
           </Route>

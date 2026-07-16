@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { X, Save, Trash2, Calendar, MessageSquare, DollarSign, User, Link as LinkIcon, Building2, Edit2 } from 'lucide-react';
+import { X, Save, Trash2, Calendar, MessageSquare, DollarSign, User, Link as LinkIcon, Building2, Edit2, Clock } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
@@ -22,6 +22,13 @@ export default function LeadModal({ leadId, onClose, onUpdate }) {
   const [editWhatsapp, setEditWhatsapp] = useState('');
   const [editEmpresa, setEditEmpresa] = useState('');
   const [editVolumeMes, setEditVolumeMes] = useState('');
+
+  // Agenda
+  const [isScheduling, setIsScheduling] = useState(false);
+  const [agendaTipo, setAgendaTipo] = useState('Ligação');
+  const [agendaTitulo, setAgendaTitulo] = useState('');
+  const [agendaData, setAgendaData] = useState('');
+  const [agendaHora, setAgendaHora] = useState('');
 
   useEffect(() => {
     const fetchLead = async () => {
@@ -105,6 +112,43 @@ export default function LeadModal({ leadId, onClose, onUpdate }) {
       onClose();
     } catch (err) {
       setError(err.message);
+      setIsSaving(false);
+    }
+  };
+
+  const handleSchedule = async () => {
+    if (!agendaTitulo || !agendaData || !agendaHora) {
+      alert('Preencha título, data e hora.');
+      return;
+    }
+    
+    setIsSaving(true);
+    try {
+      const data_agendada = new Date(`${agendaData}T${agendaHora}`).toISOString();
+      const res = await fetch('/api/admin/agenda', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          lead_id: leadId,
+          tipo: agendaTipo,
+          titulo: agendaTitulo,
+          data_agendada
+        })
+      });
+
+      if (!res.ok) throw new Error('Falha ao agendar atividade');
+      
+      alert('Atividade agendada com sucesso!');
+      setIsScheduling(false);
+      setAgendaTitulo('');
+      setAgendaData('');
+      setAgendaHora('');
+    } catch (err) {
+      setError(err.message);
+    } finally {
       setIsSaving(false);
     }
   };
@@ -249,6 +293,81 @@ export default function LeadModal({ leadId, onClose, onUpdate }) {
                 placeholder="Nome do consultor"
               />
             </div>
+          </div>
+
+          <hr className="border-slate-800" />
+
+          {/* Agendar Atividade */}
+          <div>
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-sm font-medium text-slate-300 flex items-center gap-2">
+                <Clock className="w-4 h-4 text-gold-500" /> Agendar Atividade
+              </h3>
+              <button
+                onClick={() => setIsScheduling(!isScheduling)}
+                className="text-xs text-gold-500 hover:text-gold-400"
+              >
+                {isScheduling ? 'Cancelar' : '+ Novo Agendamento'}
+              </button>
+            </div>
+
+            {isScheduling && (
+              <div className="bg-obsidian-950 border border-slate-700 rounded-lg p-4 mb-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <label className="block text-xs text-slate-500 mb-1">Tipo de Atividade</label>
+                    <select
+                      value={agendaTipo}
+                      onChange={(e) => setAgendaTipo(e.target.value)}
+                      className="w-full bg-obsidian-900 border border-slate-700 rounded-md px-3 py-2 text-sm text-slate-50 focus:border-gold-500 focus:outline-none"
+                    >
+                      <option value="Ligação">Ligação</option>
+                      <option value="WhatsApp">WhatsApp</option>
+                      <option value="Reunião">Reunião</option>
+                      <option value="Email">Email</option>
+                      <option value="Tarefa">Tarefa Geral</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-xs text-slate-500 mb-1">Título/Resumo</label>
+                    <input
+                      type="text"
+                      value={agendaTitulo}
+                      onChange={(e) => setAgendaTitulo(e.target.value)}
+                      placeholder="Ex: Ligar para confirmar..."
+                      className="w-full bg-obsidian-900 border border-slate-700 rounded-md px-3 py-2 text-sm text-slate-50 focus:border-gold-500 focus:outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs text-slate-500 mb-1">Data</label>
+                    <input
+                      type="date"
+                      value={agendaData}
+                      onChange={(e) => setAgendaData(e.target.value)}
+                      className="w-full bg-obsidian-900 border border-slate-700 rounded-md px-3 py-2 text-sm text-slate-50 focus:border-gold-500 focus:outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs text-slate-500 mb-1">Hora</label>
+                    <input
+                      type="time"
+                      value={agendaHora}
+                      onChange={(e) => setAgendaHora(e.target.value)}
+                      className="w-full bg-obsidian-900 border border-slate-700 rounded-md px-3 py-2 text-sm text-slate-50 focus:border-gold-500 focus:outline-none"
+                    />
+                  </div>
+                </div>
+                <div className="flex justify-end">
+                  <button
+                    onClick={handleSchedule}
+                    disabled={isSaving}
+                    className="px-4 py-2 bg-gold-600 hover:bg-gold-700 text-white text-xs font-medium rounded-md transition-colors"
+                  >
+                    Salvar Agendamento
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Histórico / Observações */}
